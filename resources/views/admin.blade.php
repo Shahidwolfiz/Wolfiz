@@ -12,7 +12,7 @@
                 margin: 0;
                 font-family: Arial, sans-serif;
                 background-color: #f8f9fa; /* Light background color */
-                background-image: url("{{ asset('images/img.avif') }}"); 
+                /* background-image: url("{{ asset('images/img.avif') }}");  */
                 background-size: cover; /* Ensure the image covers the entire area */
                 background-position: center; /* Center the image */
                 display: flex;
@@ -24,7 +24,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 2px;
             background-color: #103B99;
             color: white;
             flex-wrap: nowrap;
@@ -49,7 +49,7 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 10px;
             width: 90%;
             max-width: 600px;
             margin-left: auto;
@@ -106,7 +106,7 @@
             text-align: center;
         }
         .headline {
-            font-size: 3rem;
+            /* font-size: 3rem; */
             position: relative;
             overflow: hidden;
         }
@@ -130,7 +130,7 @@
             color: #f4f4f4;
         }
         .icons {
-            padding-top: 1rem;
+            /* padding-top: 1rem; */
         }
         .icons a {
             text-decoration: none;
@@ -195,7 +195,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const dynamicTexts = document.querySelectorAll('.dynamic-text');
-            const colors = ['#FF5733', '#33FF57', '#3357FF', 'blue', '#FF33F6']; // Add your desired colors here
+            const colors = ['#FF5733', '#33FF57', '#3357FF', 'blue', '#FF33F6'];
             let currentIndex = 0;
 
             const changeText = () => {
@@ -204,20 +204,19 @@
                 dynamicTexts[currentIndex].style.display = 'block';
                 dynamicTexts[currentIndex].style.opacity = '1';
 
-                // Change color of the currently visible text
+                
                 dynamicTexts[currentIndex].style.color = colors[currentIndex % colors.length];
 
                 setTimeout(() => {
                     dynamicTexts[currentIndex].style.opacity = '0';
-                }, 2000); // Show for 2 seconds before fading out
+                }, 2000); 
 
-                setTimeout(changeText, 3000); // Change every 3 seconds
+                setTimeout(changeText, 3000); 
             };
 
             changeText();
         });
 
-        // Close dropdown if clicked outside
         document.addEventListener("click", function(event) {
             const dropdown = document.getElementById("dropdownMenu");
             if (!event.target.closest('.dropdown') && dropdown.classList.contains('show')) {

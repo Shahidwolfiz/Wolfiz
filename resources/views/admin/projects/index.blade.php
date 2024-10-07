@@ -8,7 +8,7 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 2px;
         }
 
         h1 {
@@ -78,10 +78,19 @@
         a {
             color: #007bff;
             text-decoration: none;
+            cursor: pointer;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+
+        .link-form {
+            display: none; /* Initially hidden */
+        }
+
+        .link-exists {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -99,21 +108,39 @@
         <ul>
             @foreach ($projects as $project)
                 <li>
-                    <strong>{{ $project->name }}</strong>
-                    <form method="POST" action="/admin/projects/{{ $project->id }}/links" style="margin-top: 10px;">
-                        @csrf
-                        <input type="url" name="url" placeholder="Add Link" required>
-                        <button type="submit">Add Link</button>
-                    </form>
-                    <ul>
-                        @foreach ($project->links as $link)
-                            <li><a href="{{ $link->url }}" target="_blank">{{ $link->url }}</a></li>
-                        @endforeach
-                    </ul>
+                    <a onclick="toggleLinkForm('link-form-{{ $project->id }}')">
+                        <strong>{{ $project->name }}</strong>
+                    </a>
+                    <div class="link-form" id="link-form-{{ $project->id }}">
+                        @if ($project->links->isEmpty())
+                            <form method="POST" action="/admin/projects/{{ $project->id }}/links" style="margin-top: 10px;">
+                                @csrf
+                                <input type="url" name="url" placeholder="Add Link" required>
+                                <button type="submit">Add Link</button>
+                            </form>
+                        @else
+                            <div class="link-exists">
+                                <strong>Current link:</strong> 
+                                <a href="{{ $project->links->first()->url }}" target="_blank">{{ $project->links->first()->url }}</a>
+                            </div>
+                            <form method="POST" action="/admin/projects/{{ $project->id }}/links" style="margin-top: 10px;">
+                                @csrf
+                                <input type="url" name="url" placeholder="Change Link" value="{{ $project->links->first()->url }}" required>
+                                <button type="submit">Change Link</button>
+                            </form>
+                        @endif
+                    </div>
                 </li>
             @endforeach
         </ul>
     </div>
     @include('layouts.footer')
+
+    <script>
+        function toggleLinkForm(formId) {
+            const form = document.getElementById(formId);
+            form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>

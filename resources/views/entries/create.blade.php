@@ -63,7 +63,7 @@
         background-color: #f9f9f9;
         color: #333;
         margin: 0;
-        padding: 20px;
+        padding: 2px;
     }
 
     h1 {

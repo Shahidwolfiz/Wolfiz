@@ -1,6 +1,6 @@
 <div class="header">
     <h2 class="title">Admin Panel</h2>
-    <img src="{{ asset('images/logos.jpg') }}" alt="Logo" class="logo"> <!-- Update path to your logo -->
+    <img src="{{ asset('images/logos.jpg') }}" alt="Logo" class="logo"> 
 </div>
 <style>
     .header {
@@ -8,14 +8,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #103B99; /* Header background color */
+    padding: 2px;
+    background-color: #103B99; 
     color: white;
-    position: relative; /* Adjusted for better stacking context */
+    position: relative; 
 }
 
 .logo {
-    height: 80px; /* Logo height */
+    height: 80px; 
 }
 
 .title {
@@ -24,49 +24,49 @@
 }
 
 .footer {
-    position: fixed; /* Keeps the footer at the bottom of the viewport */
+    position: fixed; 
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #263238; /* Footer background color */
+    background: #263238;
     text-align: center;
-    color: #f4f4f4; /* Footer text color */
-    padding: 10px 0; /* Padding for spacing */
+    color: #f4f4f4; 
+    padding: 10px 0; 
 }
 
 .icons {
-    padding-top: 1rem; /* Space above the icons */
+    /* padding-top: 1rem; Space above the icons */
 }
 
 .icons a {
     text-decoration: none;
-    font-size: 2rem; /* Icon size */
-    margin: 0.5rem; /* Space between icons */
-    color: #f4f4f4; /* Icon color */
-    transition: color 0.3s; /* Smooth color transition */
+    font-size: 2rem; 
+    margin: 0.5rem; 
+    color: #f4f4f4; 
+    transition: color 0.3s; 
 }
 
 .icons a:hover {
-    color: #007bff; /* Color on hover */
+    color: #007bff;
 }
 
 .company-name {
-    font-size: 1.6rem; /* Company name size */
-    margin-top: 0.5rem; /* Space above the company name */
+    font-size: 1.6rem; 
+    margin-top: 0.5rem; 
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .title {
-        font-size: 1.2rem; /* Smaller title on mobile */
+        font-size: 1.2rem; 
     }
 
     .footer {
-        font-size: 0.9rem; /* Smaller footer text on mobile */
+        font-size: 0.9rem; 
     }
 
     .icons a {
-        font-size: 1.5rem; /* Smaller icon size on mobile */
+        font-size: 1.5rem; 
     }
 }
 </style>

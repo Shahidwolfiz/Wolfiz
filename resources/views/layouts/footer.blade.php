@@ -15,10 +15,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #103B99; /* Header background color */
-    color: white;
-    position: relative; /* Adjusted for better stacking context */
+    padding: 2px;
+    background-color: #103B99; 
+    position: relative; 
 }
 
 .logo {
@@ -31,6 +30,7 @@
 }
 
 .footer {
+    height: 10%;
     position: fixed; /* Keeps the footer at the bottom of the viewport */
     bottom: 0;
     left: 0;
@@ -42,7 +42,7 @@
 }
 
 .icons {
-    padding-top: 1rem; /* Space above the icons */
+    /* padding-top: 1rem; Space above the icons */
 }
 
 .icons a {
